@@ -1,0 +1,13 @@
+image:
+  file: ./.gitpod.Dockerfile
+
+tasks:
+  - name: slidev-setup
+    init: npm install @slidev/cli @slidev/theme-default
+    command: gp sync-done setup-complete
+
+  - name: slidev-run
+    command: |
+      gp sync-await setup-complete
+      npx slidev
+      
